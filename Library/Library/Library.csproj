@@ -6,9 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Validations\" />
-    <Folder Include="Services\" />
-    <Folder Include="UserInterface\" />
+    <PackageReference Include="CsvHelper" Version="26.0.1" />
+    <PackageReference Include="Maoli" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSource\CLIENTE.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSource\EMPRESTIMO.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSource\LIVRO.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

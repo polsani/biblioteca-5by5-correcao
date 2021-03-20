@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Library.UserInterface;
 
 namespace Library
 {
@@ -6,7 +6,22 @@ namespace Library
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int selectedOption = 1;
+            
+            do
+            {
+                selectedOption = StartupUserInterface.Show();
+
+                switch (selectedOption)
+                {
+                    case 1: 
+                        CustomerUserInterface.CreateCustomer();
+                        break;
+                }
+
+                StartupUserInterface.Clear();
+            }
+            while (selectedOption != 0);            
         }
     }
 }

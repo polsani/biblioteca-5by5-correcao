@@ -11,6 +11,7 @@ namespace Library.Repositories
     public class LoanRepository
     {
         private const string filePath = "DataSource/EMPRESTIMO.csv";
+        private CultureInfo _culture = new CultureInfo("pt-BR");
 
         private BookRepository _bookRepository;
         private CustomerRepository _customerRepository;
@@ -23,7 +24,7 @@ namespace Library.Repositories
 
         public void Create(Loan loan)
         {
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            var config = new CsvConfiguration(_culture)
             {
                 HasHeaderRecord = true
             };
@@ -39,7 +40,7 @@ namespace Library.Repositories
         public Loan Read(long bookPulledDownNumber)
         {
             using (var sr = new StreamReader(filePath))
-            using (var csvHelper = new CsvReader(sr, CultureInfo.InvariantCulture))
+            using (var csvHelper = new CsvReader(sr, _culture))
             {
                 var loans = csvHelper.GetRecords<Loan>();
 
@@ -58,7 +59,7 @@ namespace Library.Repositories
         public IEnumerable<Loan> ReadAll()
         {
             using (var sr = new StreamReader(filePath))
-            using (var csvHelper = new CsvReader(sr, CultureInfo.InvariantCulture))
+            using (var csvHelper = new CsvReader(sr, _culture))
             {
                 var loans = csvHelper.GetRecords<Loan>();
 
@@ -80,7 +81,7 @@ namespace Library.Repositories
             IEnumerable<Loan> loans;
 
             using (var sr = new StreamReader(filePath))
-            using (var csvHelper = new CsvReader(sr, CultureInfo.InvariantCulture))
+            using (var csvHelper = new CsvReader(sr, _culture))
             {
                 loans = csvHelper.GetRecords<Loan>();
             }
@@ -89,7 +90,7 @@ namespace Library.Repositories
 
             loan.Status = newStatus;
 
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            var config = new CsvConfiguration(_culture)
             {
                 HasHeaderRecord = true
             };
