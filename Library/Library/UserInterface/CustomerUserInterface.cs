@@ -65,6 +65,7 @@ namespace Library.UserInterface
         {
             Console.WriteLine("");
             Console.WriteLine("Esse cliente já existe em nossa base de dados.");
+            Console.ReadLine();
         }
     }
 }

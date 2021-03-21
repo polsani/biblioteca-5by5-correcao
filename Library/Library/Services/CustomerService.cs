@@ -12,7 +12,6 @@ namespace Library.Services
         public CustomerService()
         {
             _customerRepository = new CustomerRepository();
-            
         }
 
         public bool Create(Customer customer)
@@ -35,6 +34,11 @@ namespace Library.Services
             var customer = _customerRepository.Read(document);
 
             return customer != null;
+        }
+
+        public Customer ReadByDocument(string document)
+        {
+            return _customerRepository.Read(document);
         }
 
         private long GenerateNextId()

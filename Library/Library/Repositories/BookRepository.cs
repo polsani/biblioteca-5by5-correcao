@@ -55,7 +55,7 @@ namespace Library.Repositories
             using (var sr = new StreamReader(filePath))
             using (var csvHelper = new CsvReader(sr, _culture))
             {
-                return csvHelper.GetRecords<Book>();
+                return csvHelper.GetRecords<Book>().ToList();
             }
         }
     }

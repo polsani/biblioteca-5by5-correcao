@@ -6,7 +6,7 @@ namespace Library
     {
         static void Main(string[] args)
         {
-            int selectedOption = 1;
+            var selectedOption = 1;
             
             do
             {
@@ -16,6 +16,22 @@ namespace Library
                 {
                     case 1: 
                         CustomerUserInterface.CreateCustomer();
+                        break;
+
+                    case 2:
+                        BookUserInterface.CreateBook();
+                        break;
+
+                    case 3:
+                        LoanUserInterface.CreateLoan();
+                        break;
+
+                    case 4:
+                        LoanUserInterface.Return();
+                        break;
+
+                    case 5:
+                        LoanUserInterface.Report();
                         break;
                 }
 
